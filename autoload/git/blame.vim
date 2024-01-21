@@ -164,6 +164,9 @@ endfunction
 "{{{
 " \brief	toggle git blame window
 function git#blame#file()
+	" open all folds to ensure the file and blame buffer lines aligned
+	normal zR
+
 	" cleanup existing git blame buffer
 	if bufexists(g:git_blame_win_title)
 		let l:winnr = bufwinnr(s:git_blame_bufnr)
